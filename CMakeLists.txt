@@ -17,4 +17,3 @@ set(CMAKE_CXX_COMPILE_FEATURES "${CMAKE_C_COMPILE_FLAGS} -Wregister")
 add_executable(cserver src/main_finding_players.cpp)
 
 target_link_libraries(cserver RakNetDLL)
-incorrect
