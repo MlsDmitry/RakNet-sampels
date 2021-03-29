@@ -23,7 +23,7 @@
 
 #define SERVER_PORT 30000
 #define CLIENT_PORT 19133
-#define MAX_PLAYERS 500
+#define MAX_PLAYERS 1000
 
 #define TYPE_SERVER 0
 #define TYPE_CLIENT 1
@@ -133,7 +133,7 @@ connect_players(RakNet::RakPeerInterface *server)
     }
 
     while (server->NumberOfConnections() < MAX_PLAYERS) {
-        std::cout << "Waiting incoming connections" << std::endl;
+        std::cout << "Waiting incoming connections; currently: " << std::to_string(server->NumberOfConnections()) << std::endl;
         RakSleep(1000);
     }
     RakSleep(10000);
@@ -220,7 +220,7 @@ main()
     RakNet::SocketDescriptor server_socket_descriptor(SERVER_PORT, "127.0.0.1");
 
     // start server
-    b = server->Startup(100, &server_socket_descriptor, 1);
+    b = server->Startup(MAX_PLAYERS, &server_socket_descriptor, 1);
     RakAssert(b == RakNet::RAKNET_STARTED);
     server->SetMaximumIncomingConnections(MAX_PLAYERS);
     // connect players

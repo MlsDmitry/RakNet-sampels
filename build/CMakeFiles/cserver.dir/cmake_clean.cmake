@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cserver.dir/src/main_finding_players.cpp.o"
+  "CMakeFiles/cserver.dir/src/main_finding_players.cpp.o.d"
   "cserver"
   "cserver.pdb"
 )
