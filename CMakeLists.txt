@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_BUILD_TYPE DEBUG)
 # set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -o3")
 
-add_subdirectory(lib/Raknet)
-include_directories(lib/Raknet/Source)
+add_subdirectory(lib/RakNet)
+include_directories(lib/RakNet/Source)
 
 set(CMAKE_CXX_COMPILE_FEATURES "${CMAKE_C_COMPILE_FLAGS} -Wregister")
 
