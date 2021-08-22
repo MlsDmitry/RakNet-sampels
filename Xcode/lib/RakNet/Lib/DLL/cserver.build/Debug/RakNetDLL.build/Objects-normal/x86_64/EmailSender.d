@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/EmailSender.cpp \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/NativeFeatureIncludes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/NativeFeatureIncludesOverrides.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/EmailSender.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetTypes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetDefines.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetDefinesOverrides.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/NativeTypes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetTime.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/Export.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/WindowsIncludes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/XBox360Includes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/SocketIncludes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakMemoryOverride.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakAlloca.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/Rand.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/TCPInterface.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_List.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakAssert.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakThread.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_Queue.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/SimpleMutex.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_ByteQueue.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_ThreadsafeAllocatingQueue.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_MemoryPool.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/LocklessTypes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PluginInterface2.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PacketPriority.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/GetTime.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/FileList.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/FileListNodeContext.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/BitStream.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakString.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakWString.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/Base64Encoder.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakSleep.h

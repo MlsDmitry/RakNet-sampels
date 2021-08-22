@@ -7,6 +7,7 @@
 #include <cstring>
 #include <functional>
 #include <vector>
+#include "sys/socket.h"
 
 #include "RakPeerInterface.h"
 #include "RakNetTypes.h"
@@ -19,7 +20,8 @@
 #include "NetworkIDManager.h"
 #include "RakSleep.h"
 
-#include "sys/socket.h"
+#include "client.hpp"
+#include "utils.hpp"
 
 #define SERVER_PORT 30000
 #define CLIENT_PORT 19133
@@ -31,14 +33,14 @@
 std::mutex mtx;
 RakNet::RakPeerInterface *current_active_client;
 
-unsigned char
-get_packet_identifier(RakNet::Packet *p)
-{
-    if ((unsigned char)p->data[0] == ID_TIMESTAMP)
-        return (unsigned char)p->data[sizeof(RakNet::MessageID) + sizeof(RakNet::Time)];
-    else
-        return (unsigned char)p->data[0];
-}
+// unsigned char
+// get_packet_identifier(RakNet::Packet *p)
+// {
+//    if ((unsigned char)p->data[0] == ID_TIMESTAMP)
+//        return (unsigned char)p->data[sizeof(RakNet::MessageID) + sizeof(RakNet::Time)];
+//    else
+//        return (unsigned char)p->data[0];
+// }
 
 void 
 send_ping(RakNet::RakPeerInterface *client, unsigned int ms_delay)
@@ -149,64 +151,57 @@ connect_players(RakNet::RakPeerInterface *server)
             pong_thead.join();
     }
 
-    for (auto client : clients) {
-        RakNet::RakPeerInterface::DestroyInstance(client);
-    }
+//    for (auto client : clients) {
+//        RakNet::RakPeerInterface::DestroyInstance(client);
+//    }
 
     if (server_pong_thread.joinable())
         server_pong_thread.join();
 
-    // RakNet::RakPeerInterface *client1 = RakNet::RakPeerInterface::GetInstance();
-    // RakNet::RakPeerInterface *client2 = RakNet::RakPeerInterface::GetInstance();
-    // RakNet::RakPeerInterface *client3 = RakNet::RakPeerInterface::GetInstance();
-    // RakNet::RakPeerInterface *client4 = RakNet::RakPeerInterface::GetInstance();
 
-    // RakNet::SocketDescriptor client1_socket_descriptor(CLIENT_PORT + 1, "127.0.0.1");
-    // RakNet::SocketDescriptor client2_socket_descriptor(CLIENT_PORT + 2, "127.0.0.1");
-    // RakNet::SocketDescriptor client3_socket_descriptor(CLIENT_PORT + 3, "127.0.0.1");
-    // RakNet::SocketDescriptor client4_socket_descriptor(CLIENT_PORT + 4, "127.0.0.1");
-
-    // b = client1->Startup(2, &client1_socket_descriptor, 1);
-    // RakAssert(b == RakNet::RAKNET_STARTED);
-    // b = client2->Startup(2, &client2_socket_descriptor, 1);
-    // RakAssert(b == RakNet::RAKNET_STARTED);
-    // b = client3->Startup(2, &client3_socket_descriptor, 1);
-    // RakAssert(b == RakNet::RAKNET_STARTED);
-    // b = client4->Startup(2, &client4_socket_descriptor, 1);
-    // RakAssert(b == RakNet::RAKNET_STARTED);
-
-    // std::thread cl1_thread(send_ping, client1, 500);
-    // std::thread cl2_thread(send_ping, client2, 1000);
-    // std::thread cl3_thread(send_ping, client3, 2000);
-    // std::thread cl4_thread(send_ping, client4, 3000);
-
-    // std::thread cl1_pong_thread(listen_pong, client1, TYPE_CLIENT);
-    // std::thread cl2_pong_thread(listen_pong, client2, TYPE_CLIENT);
-    // std::thread cl3_pong_thread(listen_pong, client3, TYPE_CLIENT);
-    // std::thread cl4_pong_thread(listen_pong, client4, TYPE_CLIENT);
-
-    // while (server->NumberOfConnections() < MAX_PLAYERS) {
-    //     std::cout << "Waiting incoming connections" << std::endl;
-    //     RakSleep(1000);
-    // }
-
-    // cl1_thread.join();
-    // cl2_thread.join();
-    // cl3_thread.join();
-    // cl4_thread.join();
-
-    // cl1_pong_thread.join();
-    // cl2_pong_thread.join();
-    // cl3_pong_thread.join();
-    // cl4_pong_thread.join();
-
-// 
-    // RakNet::RakPeerInterface::DestroyInstance(client1);
-    // RakNet::RakPeerInterface::DestroyInstance(client2);
-    // RakNet::RakPeerInterface::DestroyInstance(client3);
-    // RakNet::RakPeerInterface::DestroyInstance(client4);
 
 }
+
+void
+send_data(RakNet::RakPeerInterface * server)
+{
+    std::string message = std::to_string(rand() % 100) + " How are you?";
+    RakNet::SystemAddress clients[32];
+    unsigned short count;
+    server->GetConnectionList(clients, &count);
+    std::cout << "Number of clients is: " << count << std::endl;
+    while (true) {
+        bool b = server->Send(message.c_str(), strlen(message.c_str()), HIGH_PRIORITY, RELIABLE_ORDERED, 0, clients[0], false);
+        RakAssert(b == 0);
+        RakSleep(30);
+    }
+
+}
+
+// RakNet::RakPeerInterface *
+// create_server()
+// {
+//     RakNet::RakPeerInterface * server = RakNet::RakPeerInterface::GetInstance();
+//     return server;
+// }
+
+
+
+// int
+// start_server(RakNet::RakPeerInterface *server)
+// {
+//     bool b;
+//     RakNet::SocketDescriptor server_socket_descriptor(SERVER_PORT, "127.0.0.1");
+    
+//     b = server->Startup(MAX_PLAYERS, &server_socket_descriptor, 1);
+//     RakAssert(b == RakNet::RAKNET_STARTED);
+
+//     server->SetMaximumIncomingConnections(MAX_PLAYERS);
+
+//     std::thread server_pong_thread(listen_pong, server, TYPE_SERVER);
+//     std::thread send_data_thread(send_data, server);
+// }   
+
 
 int 
 main()
@@ -214,7 +209,7 @@ main()
 
     bool b;
 
-    RakNet::RakPeerInterface *server = RakNet::RakPeerInterface::GetInstance();
+    RakNet::RakPeerInterface * server = RakNet::RakPeerInterface::GetInstance();
     printf("Server is at: %p\n", server);
 
     RakNet::SocketDescriptor server_socket_descriptor(SERVER_PORT, "127.0.0.1");
@@ -223,21 +218,26 @@ main()
     b = server->Startup(MAX_PLAYERS, &server_socket_descriptor, 1);
     RakAssert(b == RakNet::RAKNET_STARTED);
     server->SetMaximumIncomingConnections(MAX_PLAYERS);
+    
+    std::thread server_pong_thread(listen_pong, server, TYPE_SERVER);
+    const char * addre ="127.0.0.1";
+    Client client(CLIENT_PORT, addre);
+    RakNet::SystemAddress addr("127.0.0.1", SERVER_PORT);
+    client.connect(&addr);
+    
+    std::thread send_data_thread(send_data, server);
+    
+    while (true) {
+        RakNet::Packet * packet = client.listen_packet();
+        std::cout << "Packet id is: " << packet->data[0] << std::endl;
+    }
     // connect players
-    connect_players(server);
+//    connect_players(server);
+    if (send_data_thread.joinable())
+        send_data_thread.join();
+    if (server_pong_thread.joinable())
+        server_pong_thread.join();
     RakNet::RakPeerInterface::DestroyInstance(server);
     std::cout << "Bye!" << std::endl;
-
-        // send first packet
-        // RakNet::BitStream bs;
-        // RakNet::RakString server_blob("Hello, it's RakString here from server!");
-        // RakNet::RakString client_blob("Hello, it's RakString here from client!");
-        // bs.Write((unsigned char)ID_USER_PACKET_ENUM);
-        // bs.WriteCompressed(server_blob);
-        // client->Send(&bs, HIGH_PRIORITY, RELIABLE_ORDERED, 0, RakNet::UNASSIGNED_RAKNET_GUID, true);
-
-    // RakNet::Packet *packet; 
-    // RakNet::RakPeerInterface::DestroyInstance(server);
-    // RakNet::RakPeerInterface::DestroyInstance(client);
     return 0;
 }

@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PacketConsoleLogger.cpp \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/NativeFeatureIncludes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/NativeFeatureIncludesOverrides.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PacketConsoleLogger.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PacketLogger.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetTypes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetDefines.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetDefinesOverrides.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/NativeTypes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakNetTime.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/Export.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/WindowsIncludes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/XBox360Includes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/SocketIncludes.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PluginInterface2.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/PacketPriority.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/LogCommandParser.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/CommandParserInterface.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakMemoryOverride.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakAlloca.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_OrderedList.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/DS_List.h \
+  /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/lib/RakNet/Source/RakAssert.h

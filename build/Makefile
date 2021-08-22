@@ -48,77 +48,57 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/cmake-3.20.0-linux-x86_64/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.20.3/bin/cmake
 
 # The command to remove a file.
-RM = /opt/cmake-3.20.0-linux-x86_64/bin/cmake -E rm -f
+RM = /usr/local/Cellar/cmake/3.20.3/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mlsdmitry/Downloads/source/RakNet-samples
+CMAKE_SOURCE_DIR = /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mlsdmitry/Downloads/source/RakNet-samples/build
+CMAKE_BINARY_DIR = /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake -P cmake_install.cmake
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/opt/cmake-3.20.0-linux-x86_64/bin/cmake -P cmake_install.cmake
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -130,11 +110,31 @@ list_install_components:
 list_install_components/fast: list_install_components
 .PHONY : list_install_components/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/Cellar/cmake/3.20.3/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/Cellar/cmake/3.20.3/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mlsdmitry/Downloads/source/RakNet-samples/build/CMakeFiles /home/mlsdmitry/Downloads/source/RakNet-samples/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/build/CMakeFiles /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mlsdmitry/Downloads/source/RakNet-samples/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mlsdmitry/Documents/minecraft_engines/cserver/cserver_source/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -162,17 +162,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cserver
+# Target rules for targets named pyserver
 
 # Build rule for target.
-cserver: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cserver
-.PHONY : cserver
+pyserver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pyserver
+.PHONY : pyserver
 
 # fast build rule for target.
-cserver/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cserver.dir/build.make CMakeFiles/cserver.dir/build
-.PHONY : cserver/fast
+pyserver/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyserver.dir/build.make CMakeFiles/pyserver.dir/build
+.PHONY : pyserver/fast
+
+#=============================================================================
+# Target rules for targets named server
+
+# Build rule for target.
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
+.PHONY : server
+
+# fast build rule for target.
+server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 #=============================================================================
 # Target rules for targets named RakNetLibStatic
@@ -200,12 +213,36 @@ RakNetDLL/fast:
 	$(MAKE) $(MAKESILENT) -f lib/RakNet/Lib/DLL/CMakeFiles/RakNetDLL.dir/build.make lib/RakNet/Lib/DLL/CMakeFiles/RakNetDLL.dir/build
 .PHONY : RakNetDLL/fast
 
+src/client.o: src/client.cpp.o
+.PHONY : src/client.o
+
+# target to build an object file
+src/client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/client.cpp.o
+.PHONY : src/client.cpp.o
+
+src/client.i: src/client.cpp.i
+.PHONY : src/client.i
+
+# target to preprocess a source file
+src/client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/client.cpp.i
+.PHONY : src/client.cpp.i
+
+src/client.s: src/client.cpp.s
+.PHONY : src/client.s
+
+# target to generate assembly for a file
+src/client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/client.cpp.s
+.PHONY : src/client.cpp.s
+
 src/main_finding_players.o: src/main_finding_players.cpp.o
 .PHONY : src/main_finding_players.o
 
 # target to build an object file
 src/main_finding_players.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cserver.dir/build.make CMakeFiles/cserver.dir/src/main_finding_players.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main_finding_players.cpp.o
 .PHONY : src/main_finding_players.cpp.o
 
 src/main_finding_players.i: src/main_finding_players.cpp.i
@@ -213,7 +250,7 @@ src/main_finding_players.i: src/main_finding_players.cpp.i
 
 # target to preprocess a source file
 src/main_finding_players.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cserver.dir/build.make CMakeFiles/cserver.dir/src/main_finding_players.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main_finding_players.cpp.i
 .PHONY : src/main_finding_players.cpp.i
 
 src/main_finding_players.s: src/main_finding_players.cpp.s
@@ -221,8 +258,56 @@ src/main_finding_players.s: src/main_finding_players.cpp.s
 
 # target to generate assembly for a file
 src/main_finding_players.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cserver.dir/build.make CMakeFiles/cserver.dir/src/main_finding_players.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main_finding_players.cpp.s
 .PHONY : src/main_finding_players.cpp.s
+
+src/server_wrap.o: src/server_wrap.cxx.o
+.PHONY : src/server_wrap.o
+
+# target to build an object file
+src/server_wrap.cxx.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyserver.dir/build.make CMakeFiles/pyserver.dir/src/server_wrap.cxx.o
+.PHONY : src/server_wrap.cxx.o
+
+src/server_wrap.i: src/server_wrap.cxx.i
+.PHONY : src/server_wrap.i
+
+# target to preprocess a source file
+src/server_wrap.cxx.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyserver.dir/build.make CMakeFiles/pyserver.dir/src/server_wrap.cxx.i
+.PHONY : src/server_wrap.cxx.i
+
+src/server_wrap.s: src/server_wrap.cxx.s
+.PHONY : src/server_wrap.s
+
+# target to generate assembly for a file
+src/server_wrap.cxx.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyserver.dir/build.make CMakeFiles/pyserver.dir/src/server_wrap.cxx.s
+.PHONY : src/server_wrap.cxx.s
+
+src/utils.o: src/utils.cpp.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
 
 # Help Target
 help:
@@ -238,10 +323,20 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... RakNetDLL"
 	@echo "... RakNetLibStatic"
-	@echo "... cserver"
+	@echo "... pyserver"
+	@echo "... server"
+	@echo "... src/client.o"
+	@echo "... src/client.i"
+	@echo "... src/client.s"
 	@echo "... src/main_finding_players.o"
 	@echo "... src/main_finding_players.i"
 	@echo "... src/main_finding_players.s"
+	@echo "... src/server_wrap.o"
+	@echo "... src/server_wrap.i"
+	@echo "... src/server_wrap.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

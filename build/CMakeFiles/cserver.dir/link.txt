@@ -1,1 +1,0 @@
-/bin/c++ -g CMakeFiles/cserver.dir/src/main_finding_players.cpp.o -o cserver  -Wl,-rpath,/home/mlsdmitry/Downloads/source/RakNet-samples/build/lib/RakNet/Lib/DLL lib/RakNet/Lib/DLL/libRakNetDLL.so -lpthread 
